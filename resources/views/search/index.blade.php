@@ -10,7 +10,11 @@
                 @foreach($movies as $movie)
                     <tr>
                         <td>{{$movie['id']}}</td>
-                        <td>{{$movie['title']}}</td>
+                        <td>
+                            <a href={{'/movie/' . $movie['id']}}>
+                                {{$movie['title']}}
+                            </a>
+                        </td>
                         <td>{{$movie['release_date']}}</td>
                     </tr>
                 @endforeach
