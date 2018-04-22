@@ -12,9 +12,10 @@ class SearchController extends Controller
     public function index() {
         $token = new ApiToken(Config::get('app.tmdb_token'));
         $client = new Client($token);
-        $results = $client->getSearchApi()->searchMovies('batman');
-        dump($results['results']);
+        $response = $client->getSearchApi()->searchMovies('batman');
+        $movies = $response['results'];
+        dump($movies);
         return view('search.index')
-            ->with(['results'=>$results['results']]);
+            ->with(['movies'=>$movies]);
     }
 }
