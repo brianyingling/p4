@@ -1,7 +1,7 @@
-@extends('layouts.master');
+@extends('layouts.master')
 @section('content')
-    <h1>Search Page</h1>
-    <table>
+    <h2>Search Results</h2>
+    <table id='search-results'>
             <tr>
                 <td>id</td>
                 <td>title</td>

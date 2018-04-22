@@ -9,10 +9,12 @@ use Tmdb\Client;
 
 class SearchController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
+        $term = $request->input('term');
+        dump($term);
         $token = new ApiToken(Config::get('app.tmdb_token'));
         $client = new Client($token);
-        $response = $client->getSearchApi()->searchMovies('batman');
+        $response = $client->getSearchApi()->searchMovies($term);
         $movies = $response['results'];
         dump($movies);
         return view('search.index')
