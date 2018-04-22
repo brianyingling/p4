@@ -7,6 +7,7 @@
     </head>
     
     <body>
-        <h1>Stubbing out Application</h1>
+        @include('nav.index')
+        @yield('content')
     </body>
 </html>
