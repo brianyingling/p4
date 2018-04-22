@@ -11,3 +11,4 @@
 |
 */
 Route::get('/', 'Home\HomeController@index');
+Route::get('/search', 'SearchController@index');
