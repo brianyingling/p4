@@ -19,21 +19,16 @@ class SearchController extends Controller
         $prevPage = $page > 1 ? $page - 1 : null;
         $resultsCount = count($movies);
         $totalResults =  $response['total_results'];
-        // $pageResultsCount = $resultsCount * $page;
         $pageResultsStartCount = $page == 1 ? 1 : ($page * 20 - 20 + 1);
-        $pageResultsEndCount = ($page * 20 < $totalPages) ? ($resultsCount * $page) : $totalResults;
-        dump($response);
-        // dump($nextPage);
-        // dump($prevPage);
-        return view('search.index')
-            ->with([
-                'page_results_start_count' => $pageResultsStartCount,
-                'prev_page' => $prevPage,
-                'movies'=>$movies,
-                'next_page'=> $nextPage,
-                'page_results_end_count' => $pageResultsEndCount,
-                'term' => urlencode($term),
-                'total_results' => $totalResults,
-            ]);
+        $pageResultsEndCount = ($page * 20 < $totalResults) ? ($resultsCount * $page) : $totalResults;
+        return view('search.index')->with([
+            'page_results_start_count' => $pageResultsStartCount,
+            'prev_page' => $prevPage,
+            'movies'=>$movies,
+            'next_page'=> $nextPage,
+            'page_results_end_count' => $pageResultsEndCount,
+            'term' => urlencode($term),
+            'total_results' => $totalResults,
+        ]);
     }
 }
