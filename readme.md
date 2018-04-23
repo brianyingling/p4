@@ -6,6 +6,7 @@
 - Bootstrap: <https://getbootstrap.com/>
 - php.net: <http://www.php.net/>
 - Laravel: <https://laravel.com/>
+- PHP TMDB: <https://github.com/php-tmdb/api> 
 
 ## Notes for instructor
 None so far.
