@@ -13,7 +13,20 @@
 Route::get('/', 'Home\HomeController@index');
 Route::get('/search', 'Search\SearchController@index');
 Route::get('/movie/{id}', 'Movie\MovieController@show');
+Auth::routes();
 
+
+Route::get('/show-login-status', function () {
+    $user = Auth::user();
+
+    if ($user) {
+        dump('You are logged in.', $user->toArray());
+    } else {
+        dump('You are not logged in.');
+    }
+
+    return;
+});
 // Route::get('/debug', function () {
 
 //     $debug = [

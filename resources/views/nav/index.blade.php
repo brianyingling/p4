@@ -14,6 +14,16 @@
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
+            <li class="nav-item">
+                @if(Auth::check())
+                <form method='POST' id='logout' action='/logout'>
+                    {{ csrf_field() }}
+                    <a class="nav-link" href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
+                </form>
+                @else
+                    <a class="nav-link" href='/login'>Login</a>
+                @endif
+            </li>
         </ul>
         <form method='GET' action='/search' class="form-inline my-2 my-lg-0">
         <input name='term' id='term' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
