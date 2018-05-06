@@ -21,7 +21,7 @@ class SearchController extends Controller
         $totalResults =  $response['total_results'];
         $pageResultsStartCount = $page == 1 ? 1 : ($page * 20 - 20 + 1);
         $pageResultsEndCount = ($page * 20 < $totalResults) ? ($resultsCount * $page) : $totalResults;
-        dump($movies);
+        // dump($movies);
         return view('search.index')->with([
             'page_results_start_count' => $pageResultsStartCount,
             'prev_page' => $prevPage,

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMoviesTable extends Migration
+class CreateThreadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,18 @@ class CreateMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::create('movies', function (Blueprint $table) {
+        Schema::create('threads', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('poster_path')->nullable();
-            $table->string('tmdb_id');
-            $table->string('imdb_id');
-            $table->string('tagline')->nullable();
-            $table->string('status');
-            $table->text('overview');
-            $table->datetime('release_date');
+            $table->text('text');
+            $table->integer('movie_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->foreign('movie_id')->references('id')->on('movies');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -34,6 +33,5 @@ class CreateMoviesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('threads');
-        Schema::dropIfExists('movies');
     }
 }
