@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Tmdb\Client;
 use Tmdb\Repository\MovieRepository;
 use App\Movie;
+use App\Thread;
 
 class MovieController extends Controller
 {
@@ -14,7 +15,13 @@ class MovieController extends Controller
     public function show($id, Client $tmdb) {
         $movie = Movie::where('tmdb_id', $id)->first();
         if ($movie) {
-            return view('movies.show')->with(['movie' => $movie]);
+            $threads = Thread::where('movie_id', $movie->id)->get();
+            $thread = Thread::all()->first();
+            dump($threads);
+            return view('movies.show')->with([
+                'movie' => $movie,
+                'threads' => $threads
+            ]);
         }
         try {
             $repository = new MovieRepository($tmdb);

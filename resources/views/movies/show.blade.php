@@ -20,5 +20,30 @@
                 </div>
             </div>
         </div>
+        @if($threads) 
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="col">Title</th>
+                        <th class="col">Created At</th>
+                        <th class="col">Last Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($threads as $thread)
+                        <tr>
+                            <td>
+                                <a href={{'/threads/'.$thread->id}}>
+                                    {{$thread->title}}
+                                </a>
+                            </td>
+                            <td>{{$thread->created_at}}</td>
+                            <td>{{$thread->updated_at}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            
+        @endif
     </div>
 @endsection

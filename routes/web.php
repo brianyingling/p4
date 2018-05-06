@@ -13,6 +13,7 @@
 Route::get('/', 'Home\HomeController@index');
 Route::get('/search', 'Search\SearchController@index');
 Route::get('/movie/{id}', 'Movie\MovieController@show');
+Route::get('/threads/{id}', 'Thread\ThreadController@show');
 Auth::routes();
 
 
