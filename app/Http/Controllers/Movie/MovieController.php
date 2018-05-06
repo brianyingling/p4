@@ -17,7 +17,7 @@ class MovieController extends Controller
         if ($movie) {
             $threads = Thread::where('movie_id', $movie->id)->get();
             $thread = Thread::all()->first();
-            dump($threads);
+            // dump($threads);
             return view('movies.show')->with([
                 'movie' => $movie,
                 'threads' => $threads

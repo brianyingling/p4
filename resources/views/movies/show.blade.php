@@ -20,6 +20,11 @@
                 </div>
             </div>
         </div>
+        <div class="text-right">
+            <a href="/movie/{{$movie->id}}/threads/create" class='btn btn-link'>
+                Create a New Thread
+            </a>
+        </div>
         @if($threads) 
             <table class="table table-striped">
                 <thead>
