@@ -1,7 +1,10 @@
-@extends('layouts.master');
+@extends('layouts.master')
 
 @section('content')
-    <h1>Create Thread</h1>
+    <h1><em>{{$movie_title}}</em></h1>
+    <div class="card">
+    <div class="card-body">
+    <h2>New Thread</h2>
     <form action='/threads' method='POST'>
         {{ csrf_field() }}
 
@@ -16,7 +19,7 @@
         </div>
         <input type="hidden" name="movie_id" id="movie_id" value='{{$movie_id}}'>
 
-        <input type="submit" value="Save Changes" class="btn btn-primary">
+        <input type="submit" value="Create Thread" class="btn btn-primary">
 
         @if($thread->last_updated)
             <div class="last-updated">
@@ -30,4 +33,6 @@
             </div>
         @endif
     </form>
+    </div>
+    </div>
 @endsection

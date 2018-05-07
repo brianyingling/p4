@@ -1,3 +1,20 @@
+#logout {
+    margin: 0;
+}
+
+#search-container {
+    width: 100%;
+}
+
+#search {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#term {
+    width: 80%;
+}
+
 #search-results {
     width: 100%;
 }

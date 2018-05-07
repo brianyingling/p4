@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Movie;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+// use \Moment;
 use Tmdb\Client;
 use Tmdb\Repository\MovieRepository;
 use App\Movie;
@@ -17,10 +18,12 @@ class MovieController extends Controller
         if ($movie) {
             $threads = Thread::where('movie_id', $movie->id)->get();
             $thread = Thread::all()->first();
+            // $release_date = (new \Moment\Moment($movie->release_date))->format('F dS Y');
             // dump($threads);
             return view('movies.show')->with([
                 'movie' => $movie,
-                'threads' => $threads
+                'threads' => $threads,
+                // 'release_date' => $release_date
             ]);
         }
         try {
@@ -38,7 +41,11 @@ class MovieController extends Controller
                 $movie->release_date = $movieData->getReleaseDate();
                 $movie->save();
                 $savedMovie = Movie::where('tmdb_id', $id)->first();
-                return view('movies.show')->with(['movie' => $savedMovie]);
+                // dump($movie->release_date);
+                return view('movies.show')->with([
+                    'movie' => $savedMovie,
+                    // 'release_date' => $movie->release_date
+                ]);
             }
         } catch(Exception $e) {
             dump($e);

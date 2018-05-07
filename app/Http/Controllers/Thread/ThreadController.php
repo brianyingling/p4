@@ -23,7 +23,8 @@ class ThreadController extends Controller
         
         return view('threads.create')->with([
             'thread' => new Thread(),
-            'movie_id' => $movie->id
+            'movie_id' => $movie->id,
+            'movie_title' => $movie->title
         ]);
     }
 
