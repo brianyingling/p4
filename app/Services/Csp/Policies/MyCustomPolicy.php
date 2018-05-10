@@ -13,6 +13,6 @@ class MyCustomPolicy extends Basic
         
         $this->addDirective(Directive::STYLE, '*.bootstrapcdn.com self');
         $this->addDirective(Directive::SCRIPT, 'strict-dynamic self');
-        $this->addDirective(Directive::IMG, 'self *.tmdb.org');
+        $this->addDirective(Directive::IMG, 'self image.tmdb.org');
     }
 }
