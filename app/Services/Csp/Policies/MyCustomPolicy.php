@@ -12,7 +12,7 @@ class MyCustomPolicy extends Basic
         parent::configure();
         
         $this->addDirective(Directive::STYLE, '*.bootstrapcdn.com self');
-        $this->addDirective(Directive::SCRIPT, '*');
+        $this->addDirective(Directive::SCRIPT, 'strict-dynamic self unsafe-inline');
         $this->addDirective(Directive::IMG, '*');
     }
 }
