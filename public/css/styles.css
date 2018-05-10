@@ -2,6 +2,9 @@
     margin: 0;
 }
 
+#top-comments {
+    margin: 2rem;
+}
 #search-container {
     width: 100%;
 }

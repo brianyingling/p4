@@ -1,5 +1,14 @@
 <?php
 
+// SORTING
+// select count(*), movies.title 
+// from threads 
+// INNER JOIN movies 
+// on threads.movie_id = movies.id 
+// group by movies.title 
+// ORDER BY COUNT(*) DESC;
+
+
 namespace App\Http\Controllers\Movie;
 
 use App\Http\Controllers\Controller;

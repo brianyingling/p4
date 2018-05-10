@@ -10,19 +10,11 @@ use Tmdb\Client;
 
 class HomeController extends Controller {
     public function index() {
-        $tokenString = Config::get('app.tmdb_token');
-        $token = new \Tmdb\ApiToken($tokenString);
-        $client = new \Tmdb\Client($token);
-        // dump($tokenString);
-        // $movie = $client->getMoviesApi()->getMovie(550);
-        $repository = new MovieRepository($client);
-        $movie = $repository->load(87421);
-        // dump($movie->getTitle());
+        $query = 'select count(*) as count, movies.title, movies.tmdb_id from threads INNER JOIN movies on threads.movie_id = movies.id group by movies.title ORDER BY COUNT(*) DESC;';
+        $result = \DB::select(\DB::raw($query));
+        return view('home.index')->with([
+            'results' => $result,
 
-        $result = $client->getSearchApi()->searchMovies('batman');
-
-        // dump($result['page']);
-        return view('home.index')
-            ->with(['results' => $result['results']]);
+        ]);
     }
 }
