@@ -15,7 +15,7 @@
                 @if(Auth::check())
                 <form method='POST' id='logout' action='/logout'>
                     {{ csrf_field() }}
-                    <a class="nav-link" href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
+                    <button class="nav-link">Logout</a>
                 </form>
                 @else
                     <a class="nav-link" href='/login'>Login</a>
