@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
-    public function movie() {
+    public function movie()
+    {
         return $this->belongsTo('App\Movie');
     }
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo('App\User');
     }
 }
